@@ -3,10 +3,8 @@ import Header from '../pages/SharedPages/Header/Header';
 import Footer from '../pages/SharedPages/Footer/Footer';
 import { Col, Container, Row } from 'react-bootstrap';
 import { Outlet } from 'react-router-dom';
-import LeftNav from '../pages/LeftNav/LeftNav';
 import PopularFoods from '../pages/PopularFoods/PopularFoods';
 import FeaturedChefSection from '../pages/FeaturedChefSection/FeaturedChefSection';
-import ChefSection from '../pages/ChefSection/ChefSection';
 
 const Main = () => {
     return (

@@ -2,6 +2,7 @@ import React from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import ChefBanner from '../../pages/Banner/ChefBanner';
 import RecipeDetails from '../../pages/RecipeDetails/RecipeDetails';
+import NavBar from '../../pages/SharedPages/NavBar/NavBar';
 
 const ChefRecipes = () => {
 
@@ -15,13 +16,16 @@ const ChefRecipes = () => {
     return (
         <div>
             <div>
+                <NavBar />
+            </div>
+            <div>
                 <ChefBanner
                     key={id}
                     chefData={chefData}
                 >
                 </ChefBanner>
             </div>
-            
+
             <div>
                 {
                     // recipes.map((recipe,idx) => <p

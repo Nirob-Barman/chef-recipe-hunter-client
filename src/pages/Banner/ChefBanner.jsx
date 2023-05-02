@@ -13,7 +13,6 @@ const ChefBanner = ({ chefData }) => {
                     <Image
                         src={pictureUrl}
                         alt="Chef"
-                        roundedCircle
                         className="mb-3 w-50"
                     />
                     <h2 className="font-weight-bold mb-3">{name}</h2>

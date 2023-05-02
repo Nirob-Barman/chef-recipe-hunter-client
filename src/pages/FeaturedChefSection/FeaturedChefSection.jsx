@@ -30,7 +30,7 @@ function FeaturedChefSection() {
                         <Card.Text>
                             Summary of the recipe and why it's special or unique.
                         </Card.Text>
-                        <small className="text-muted">By Chef Name</small>
+                        {/* <small className="text-muted">By Chef Name</small> */}
                     </Card.Body>
                 </Card>
                 <Card style={{ width: '300px', height: '400px' }}>
@@ -44,7 +44,7 @@ function FeaturedChefSection() {
                         <Card.Text>
                             Summary of the recipe and why it's special or unique.
                         </Card.Text>
-                        <small className="text-muted">By Chef Name</small>
+                        {/* <small className="text-muted">By Chef Name</small> */}
                     </Card.Body>
                 </Card>
             </CardGroup>

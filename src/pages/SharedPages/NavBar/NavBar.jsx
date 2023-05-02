@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { FaUser } from 'react-icons/fa';
+import { FaUser, FaUserCircle } from 'react-icons/fa';
+import { AuthContext } from '../../../providers/AuthProvider';
 
 const NavBar = () => {
+
+    const { user, logOut } = useContext(AuthContext);
+    const handleLogOut = () => {
+        logOut()
+            .then()
+            .catch(error => console.log(error));
+    }
+
     return (
         <Container>
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
@@ -19,26 +28,17 @@ const NavBar = () => {
                             <Link to="/about">About</Link>
                         </Nav>
                         <Nav className='gap-2'>
-                            {/* {
-                                user && <FaUserCircle style={{ fontSize: '2rem' }}></FaUserCircle>
-                            } */}
                             {
-                                <FaUser style={{ fontSize: '2rem' }}></FaUser>
+                                user && <FaUserCircle style={{ fontSize: '2rem' }}></FaUserCircle>
                             }
 
-                            {/* {user ?
+                            {user ?
                                 <Button onClick={handleLogOut} variant="secondary">Logout</Button> :
                                 <Link to="/login">
                                     <Button variant="secondary">Login</Button>
                                 </Link>
-                            } */}
-                            {
-                                <Button variant="secondary">Logout</Button>
-                                // :
-                                // <Link to="/login">
-                                //     <Button variant="secondary">Login</Button>
-                                // </Link>
                             }
+                            
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

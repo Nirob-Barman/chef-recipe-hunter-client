@@ -18,7 +18,6 @@ const RecipeDetails = ({ recipe }) => {
         <Container>
             <Card>
                 <Card.Img
-                    roundedCircle
                     className="mb-3 w-25 mx-auto"
                     variant="top" src={image} />
 
