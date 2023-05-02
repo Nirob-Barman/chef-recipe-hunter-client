@@ -5,6 +5,7 @@ import Category from "../pages/Home/Category/Category";
 import ChefSection from "../pages/ChefSection/ChefSection";
 import ChefRecipes from "../layout/ChefRecipes/ChefRecipes";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import ChefDetails from "../pages/ChefDetails/ChefDetails";
 
 const router = createBrowserRouter([
     {
@@ -16,13 +17,20 @@ const router = createBrowserRouter([
                 path: '/',
                 // element: <Home />
                 element: <ChefSection />,
-                loader: () => fetch('http://localhost:5000/categories')
+                loader: () => fetch('http://localhost:5000/chef')
+            }
 
-            },
+        ]
+    },
+    {
+        path: '/chef',
+        element: <ChefRecipes />,
+        loader: ({ params }) => fetch(`http://localhost:5000/chef/${params.id}`),
+        children: [
             {
-                path: '/chef:id',
-                element: <ChefRecipes />,
-                // loader: ({ params }) => fetch(`https://the-news-server-rsnirob.vercel.app/categories/${params.id}`)
+                path: ':id',
+                element: <ChefDetails />,
+                
             }
         ]
     }
