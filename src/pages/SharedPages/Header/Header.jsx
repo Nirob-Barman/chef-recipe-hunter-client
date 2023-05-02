@@ -3,16 +3,22 @@ import NavBar from '../NavBar/NavBar';
 import { Badge, Button, Container } from 'react-bootstrap';
 import logo from '../../../assets/logo.png'
 import Marquee from 'react-fast-marquee';
+import Banner from '../../Banner/Banner';
 
 const Header = () => {
     return (
         <div>
+
+            
 
             <Container className='mt-4'>
                 <div className="text-center">
                     <img className='w-25' src={logo} alt="" />
                     <p className='text-secondary'><small>Welcome to our website</small></p>
                 </div>
+
+                <Banner />
+
                 <div>
                     {/* <Marquee className='text-danger' speed={100}>
                         We've rounded up our highest-rated recipes of all time! They're our most loved, commented and rated recipes from our big Taste of Home community, all in one place. Check out these new recipes that you have to try this month

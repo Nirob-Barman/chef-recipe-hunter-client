@@ -9,7 +9,8 @@ const Footer = () => {
                 <Row>
                     <Col md={4} className="mb-3 mb-md-0">
                         <h5>About Us</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <p>At XYZ Food Recipes, we believe that cooking is an art form that should be accessible to everyone. Our mission is to provide a platform for food lovers of all skill levels to discover and share delicious and healthy recipes.
+                            Thank you for visiting our website, and happy cooking!</p>
                     </Col>
                     <Col md={4} className="mb-3 mb-md-0">
                         <h5>Contact Us</h5>
