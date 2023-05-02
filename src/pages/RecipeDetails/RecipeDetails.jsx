@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, Button, Container } from 'react-bootstrap';
+import toast, { Toaster } from 'react-hot-toast';
 
 const RecipeDetails = ({ recipe }) => {
+    const notify = () => toast('Favorite Item');
+    const [disabled, setDisabled] = useState(false);
+
+    const handleClick = () => {
+        setDisabled(true);
+        notify();
+        // Do other things you want to do when the button is clicked
+    };
 
     const { name, recipeName, cookingMethod, image, description, rating, ingredients } = recipe;
 
@@ -26,7 +35,10 @@ const RecipeDetails = ({ recipe }) => {
                         <h5>Rating: {rating}</h5>
                     </Card.Text>
                     <div className='text-center'>
-                        <Button variant="primary">Favorite</Button>
+                        <Button onClick={handleClick}
+                            disabled={disabled}
+                            variant="primary">Favorite</Button>
+                        <Toaster />
                     </div>
                 </Card.Body>
             </Card>
