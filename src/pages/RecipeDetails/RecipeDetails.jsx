@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Card, Button, Container } from 'react-bootstrap';
 import toast, { Toaster } from 'react-hot-toast';
+import { Rating } from '@smastrom/react-rating'
+import '@smastrom/react-rating/style.css'
 
 const RecipeDetails = ({ recipe }) => {
     const notify = () => toast('Favorite Item');
@@ -31,7 +33,13 @@ const RecipeDetails = ({ recipe }) => {
                         <h5>Cooking Method:
                             {cookingMethod}</h5>
 
-                        <h5>Rating: {rating}</h5>
+                        {/* <h5>Rating: {rating}</h5> */}
+                        <div className='flex-grow-1 d-flex align-items-center'>
+                            <Rating
+                                style={{ maxWidth: 150 }}
+                                value={Math.round(rating || 0)} readOnly />
+                            <span className='ms-2'> {rating}</span>
+                        </div>
                     </Card.Text>
                     <div className='text-center'>
                         <Button onClick={handleClick}

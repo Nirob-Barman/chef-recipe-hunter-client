@@ -25,7 +25,7 @@ const router = createBrowserRouter([
                         path: '/',
                         // element: <Home />
                         element: <ChefSection />,
-                        loader: () => fetch('http://localhost:5000/chef')
+                        loader: () => fetch('https://chef-recipe-hunting-server-rsnirob.vercel.app/chef')
                     }
                 ]
             },
@@ -51,7 +51,7 @@ const router = createBrowserRouter([
         //         path: '/',
         //         // element: <Home />
         //         element: <ChefSection />,
-        //         loader: () => fetch('http://localhost:5000/chef')
+        //         loader: () => fetch('https://chef-recipe-hunting-server-rsnirob.vercel.app/chef')
         //     }
         // ]
     },
@@ -60,12 +60,12 @@ const router = createBrowserRouter([
         element: <PrivateRoute>
             <ChefRecipes />
         </PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/chef/${params.id}`),
+        loader: ({ params }) => fetch(`https://chef-recipe-hunting-server-rsnirob.vercel.app/chef/${params.id}`),
         children: [
             {
                 path: ':id',
                 element: <ChefDetails />,
-                
+
             }
         ]
     }

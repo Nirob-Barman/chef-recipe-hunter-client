@@ -8,7 +8,7 @@ const ChefSection = () => {
     // const [categories, setCategories] = useState([]);
 
     // useEffect(() => {
-    //     fetch('http://localhost:5000/categories')
+    //     fetch('https://chef-recipe-hunting-server-rsnirob.vercel.app/categories')
     //         .then(res => res.json())
     //         // .then(data => console.log(data))
     //         .then(data => setCategories(data))
