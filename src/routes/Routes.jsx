@@ -3,6 +3,7 @@ import Main from "../layout/Main";
 import Home from "../pages/Home/Home";
 import Category from "../pages/Home/Category/Category";
 import ChefSection from "../pages/ChefSection/ChefSection";
+import ChefRecipes from "../layout/ChefRecipes/ChefRecipes";
 
 const router = createBrowserRouter([
     {
@@ -17,8 +18,9 @@ const router = createBrowserRouter([
 
             },
             {
-                path: '/category:id',
-                element: <Category />
+                path: '/chef:id',
+                element: <ChefRecipes />,
+                // loader: ({ params }) => fetch(`https://the-news-server-rsnirob.vercel.app/categories/${params.id}`)
             }
         ]
     }

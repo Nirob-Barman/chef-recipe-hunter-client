@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
+import Category from '../Home/Category/Category';
 
 const ChefSection = () => {
 
@@ -15,7 +16,7 @@ const ChefSection = () => {
     // }, [])
 
     const categories = useLoaderData();
-    
+
     return (
         <div>
             <Container className="mt-5">
@@ -24,13 +25,15 @@ const ChefSection = () => {
                     {categories.map((chef) => (
                         <Col xs={12} md={6} lg={4} key={chef.id}>
                             <Card className="mb-4">
-                                <Card.Img variant="top" src={chef.pictureUrl} />
+                                <Card.Img
+                                    style={{ height: '12rem', objectFit: 'cover' }}
+                                    variant="top" src={chef.pictureUrl} />
                                 <Card.Body>
                                     <Card.Title>{chef.name}</Card.Title>
                                     <Card.Text>Years of Experience: {chef.experience}</Card.Text>
                                     <Card.Text>Number of Recipes: {chef.recipes}</Card.Text>
                                     <Card.Text>Likes: {chef.likes}</Card.Text>
-                                    <Button variant="primary">View Recipes</Button>
+                                    <Link to={`/chef/${chef.id}`}><Button variant="primary">View Recipes</Button></Link>
                                 </Card.Body>
                             </Card>
                         </Col>
