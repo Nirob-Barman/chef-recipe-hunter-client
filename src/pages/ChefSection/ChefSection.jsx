@@ -1,0 +1,44 @@
+import React, { useEffect, useState } from 'react';
+import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import { useLoaderData } from 'react-router-dom';
+
+const ChefSection = () => {
+
+    // const [categories, setCategories] = useState([]);
+
+    // useEffect(() => {
+    //     fetch('http://localhost:5000/categories')
+    //         .then(res => res.json())
+    //         // .then(data => console.log(data))
+    //         .then(data => setCategories(data))
+    //         .catch(error => console.error(error))
+    // }, [])
+
+    const categories = useLoaderData();
+    
+    return (
+        <div>
+            <Container className="mt-5">
+                <h2 className="text-center mb-4">Meet Our Chefs</h2>
+                <Row>
+                    {categories.map((chef) => (
+                        <Col xs={12} md={6} lg={4} key={chef.id}>
+                            <Card className="mb-4">
+                                <Card.Img variant="top" src={chef.pictureUrl} />
+                                <Card.Body>
+                                    <Card.Title>{chef.name}</Card.Title>
+                                    <Card.Text>Years of Experience: {chef.experience}</Card.Text>
+                                    <Card.Text>Number of Recipes: {chef.recipes}</Card.Text>
+                                    <Card.Text>Likes: {chef.likes}</Card.Text>
+                                    <Button variant="primary">View Recipes</Button>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                    ))}
+                </Row>
+            </Container>
+        </div>
+    );
+};
+
+export default ChefSection;

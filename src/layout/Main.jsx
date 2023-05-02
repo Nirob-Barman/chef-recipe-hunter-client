@@ -6,6 +6,7 @@ import { Outlet } from 'react-router-dom';
 import LeftNav from '../pages/LeftNav/LeftNav';
 import PopularFoods from '../pages/PopularFoods/PopularFoods';
 import FeaturedChefSection from '../pages/FeaturedChefSection/FeaturedChefSection';
+import ChefSection from '../pages/ChefSection/ChefSection';
 
 const Main = () => {
     return (
@@ -14,13 +15,10 @@ const Main = () => {
 
             <Container>
                 <Row>
-                    <Col
-                        lg={4}>
-                        <LeftNav />
-                    </Col>
-                    <Col lg={8}>
+                    {/* <Col lg={12}>
                         <Outlet />
-                    </Col>
+                    </Col> */}
+                    <Outlet />
                 </Row>
 
                 <Row className='text-center my-5'>
