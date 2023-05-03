@@ -8,6 +8,7 @@ const NavBar = () => {
     const location = useLocation();
 
     const { user, logOut } = useContext(AuthContext);
+    // console.log(user.email);
     const handleLogOut = () => {
         logOut()
             .then()
@@ -48,7 +49,9 @@ const NavBar = () => {
                         </Nav>
                         <Nav className='gap-2'>
                             {
-                                user && <FaUser style={{ fontSize: '2rem' }}></FaUser>
+                                user && <FaUser
+                                    title={user?.displayName}
+                                    style={{ fontSize: '2rem' }}></FaUser>
                             }
 
                             {user ?
