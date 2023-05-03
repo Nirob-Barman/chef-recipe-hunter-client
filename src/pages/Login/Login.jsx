@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Button, Container, Form } from 'react-bootstrap';
+import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 
@@ -36,7 +36,6 @@ const Login = () => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
                 navigate(from, { replace: true })
-                console.log("Google - ", from);
             })
             .catch(error => {
                 console.log(error)
@@ -57,47 +56,54 @@ const Login = () => {
 
 
     return (
-        <Container className='w-25 mx-auto'>
-            <h3>Please Login</h3>
-            <Form onSubmit={handleLogin}>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" name='email' placeholder="Enter email" required />
-                </Form.Group>
+        <Container className=''>
+            <Row className='justify-content-center'>
+                <Col lg={6}>
+                    <h3 className='text-center mt-2'>Please Login</h3>
+                    <Form onSubmit={handleLogin}>
+                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                            <Form.Label>Enter your Email address</Form.Label>
+                            <Form.Control type="email" name='email' placeholder="Enter email" required />
+                        </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" name='password' placeholder="Password" required />
-                </Form.Group>
+                        <Form.Group className="mb-3" controlId="formBasicPassword">
+                            <Form.Label>Enter your Password</Form.Label>
+                            <Form.Control type="password" name='password' placeholder="Password" required />
+                        </Form.Group>
 
-                {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                        {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="Check me out" />
                 </Form.Group> */}
 
-                <div className='text-center'>
-                    <Button variant="primary" type="submit">
-                        Login
-                    </Button>
-                    <br />
-                    <Button className='mt-2' onClick={handleGoogleSignIn} variant="primary" type="submit">
-                        Login with Google
-                    </Button>
-                    <br />
-                    <Button className='mt-2' onClick={handleGithubSignIn} variant="primary" type="submit">
-                        Login with Github
-                    </Button>
-                </div>
-                <br />
-                <Form.Text className="text-secondary">
-                    Don't Have an Account? <Link to="/register">Register</Link>
-                </Form.Text>
-                <Form.Text className="text-success">
+                        <div className='text-center'>
+                            <Button variant="primary" type="submit" block>
+                                Login
+                            </Button>
+                            <hr />
+                            <Button className='mt-2' onClick={handleGoogleSignIn} variant="danger" block>
+                                Login with Google
+                            </Button>
+                            <hr />
+                            <Button className='mt-2' onClick={handleGithubSignIn} variant="dark" block>
+                                Login with Github
+                            </Button>
+                        </div>
+                        <div className='text-center mt-2'>
+                            <Form.Text className="text-secondary">
+                                Don't Have an Account? <Link to="/register">Register</Link>
+                            </Form.Text>
+                        </div>
+                        <Form.Text className="text-success">
 
-                </Form.Text>
-                <Form.Text className="text-danger">
+                        </Form.Text>
+                        <Form.Text className="text-danger">
 
-                </Form.Text>
-            </Form>
+                        </Form.Text>
+
+
+                    </Form>
+                </Col>
+            </Row>
         </Container>
     );
 };
