@@ -36,6 +36,7 @@ const Login = () => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
                 navigate(from, { replace: true })
+                console.log("Google - ", from);
             })
             .catch(error => {
                 console.log(error)

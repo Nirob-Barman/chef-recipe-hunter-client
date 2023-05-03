@@ -3,6 +3,7 @@ import { useLoaderData, useParams } from 'react-router-dom';
 import ChefBanner from '../../pages/Banner/ChefBanner';
 import RecipeDetails from '../../pages/RecipeDetails/RecipeDetails';
 import NavBar from '../../pages/SharedPages/NavBar/NavBar';
+import Footer from '../../pages/SharedPages/Footer/Footer';
 
 const ChefRecipes = () => {
 
@@ -36,6 +37,9 @@ const ChefRecipes = () => {
                         recipe={recipe}
                     ></RecipeDetails>)
                 }
+            </div>
+            <div>
+                <Footer />
             </div>
         </div>
     );

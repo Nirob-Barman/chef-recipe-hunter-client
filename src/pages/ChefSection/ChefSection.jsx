@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import { Link, useLoaderData } from 'react-router-dom';
-import Category from '../Home/Category/Category';
 
 const ChefSection = () => {
 

@@ -1,7 +1,5 @@
 import { Navigate, createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main";
-import Home from "../pages/Home/Home";
-import Category from "../pages/Home/Category/Category";
 import ChefSection from "../pages/ChefSection/ChefSection";
 import ChefRecipes from "../layout/ChefRecipes/ChefRecipes";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
@@ -10,6 +8,7 @@ import LoginLayout from "../layout/LoginLayout";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Login/Register";
 import PrivateRoute from "./PrivateRoute";
+import Blog from "../pages/Blog/Blog";
 
 const router = createBrowserRouter([
     {
@@ -68,6 +67,10 @@ const router = createBrowserRouter([
 
             }
         ]
+    },
+    {
+        path: '/blog',
+        element: <Blog />
     }
 ])
 export default router;
