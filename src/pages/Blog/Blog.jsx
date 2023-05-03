@@ -2,14 +2,30 @@ import React from 'react';
 import { Container, Row, Col, ListGroup, ListGroupItem } from 'react-bootstrap';
 import NavBar from '../SharedPages/NavBar/NavBar';
 import Footer from '../SharedPages/Footer/Footer';
+import Pdf from "react-to-pdf";
+
+const ref = React.createRef();
+
+const options = {
+    filename: 'mypdf.pdf',
+    orientation: 'landscape',
+    pageSize: 'A4',
+    margin: '10cm',
+};
 
 const Blog = () => {
+
     return (
         <Container>
-
             <NavBar />
 
-            <Row className="justify-content-center my-5">
+            <div className='text-center mt-5'>
+                <Pdf targetRef={ref} filename={options.filename} options={options}>
+                    {({ toPdf }) => <button onClick={toPdf}>Generate Pdf</button>}
+                </Pdf>
+            </div>
+
+            <Row ref={ref} className="justify-content-center my-5">
                 <Col xs={12} md={8}>
                     <ListGroup>
                         <ListGroupItem variant="primary">
