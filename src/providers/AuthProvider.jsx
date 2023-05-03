@@ -24,11 +24,11 @@ const AuthProvider = ({ children }) => {
     }
     const signInWithGoogle = () => {
         setLoading(true);
-        signInWithPopup(auth, googleAuthProvider)
+        return signInWithPopup(auth, googleAuthProvider)
     }
     const signInWithGithub = () => {
         setLoading(true);
-        signInWithPopup(auth, githubAuthProvider)
+        return signInWithPopup(auth, githubAuthProvider)
     }
 
     const logOut = () => {

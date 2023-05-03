@@ -21,14 +21,15 @@ const Register = () => {
 
         const form = event.target;
         const name = form.name.value;
-        const photo = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
+        const photo = form.photo.value;
 
         // console.log(name, photo, email, password)
 
+
         //validation
-        
+
         if (password.length < 6) {
             setError('Please add at least 6 characters in your password');
             return;
@@ -59,12 +60,12 @@ const Register = () => {
                 <Col lg={6}>
                     <h3>Please Register</h3>
                     <Form onSubmit={handleRegister}>
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Group className="mb-3">
                             <Form.Label>Name</Form.Label>
                             <Form.Control type="text" name='name' placeholder="Your Name" required />
                         </Form.Group>
 
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Group className="mb-3">
                             <Form.Label>Email address</Form.Label>
                             <Form.Control type="email" name='email' placeholder="Enter email" required />
                         </Form.Group>
@@ -74,7 +75,7 @@ const Register = () => {
                             <Form.Control type="password" name='password' placeholder="Password" required />
                         </Form.Group>
 
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Group className="mb-3">
                             <Form.Label>Photo URL</Form.Label>
                             <Form.Control type="text" name='photo' placeholder="Photo URL" required />
                         </Form.Group>
@@ -96,16 +97,10 @@ const Register = () => {
                         <Form.Text className="text-secondary">
                             Already Have an Account? <Link to="/login">Login</Link>
                         </Form.Text>
-                        <Form.Text className="text-success">
-
-                        </Form.Text>
-                        <Form.Text className="text-danger">
-
-                        </Form.Text>
                     </Form>
                 </Col>
             </Row>
-            
+
         </Container>
     );
 };

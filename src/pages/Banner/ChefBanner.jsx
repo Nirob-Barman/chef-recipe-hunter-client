@@ -6,14 +6,14 @@ const ChefBanner = ({ chefData }) => {
 
     // console.log(chefData);
     const { id, name, bio, pictureUrl, experience, recipes, likes } = chefData;
-    console.log(bio);
+    // console.log(bio);
 
     return (
         <Container className="bg-light py-5">
             <Row className="justify-content-center align-items-center">
                 <Col md={4} className="text-center">
 
-                    <LazyLoad height={5000}>
+                    <LazyLoad height={200}>
                         <Image
                             src={pictureUrl}
                             alt="Chef"

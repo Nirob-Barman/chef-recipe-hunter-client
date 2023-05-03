@@ -4,43 +4,44 @@ import ChefBanner from '../../pages/Banner/ChefBanner';
 import RecipeDetails from '../../pages/RecipeDetails/RecipeDetails';
 import NavBar from '../../pages/SharedPages/NavBar/NavBar';
 import Footer from '../../pages/SharedPages/Footer/Footer';
+import { Col, Container, Row } from 'react-bootstrap';
 
 const ChefRecipes = () => {
 
     const { id } = useParams();
     const chef = useLoaderData();
     const chefData = chef[0];
-    console.log(chef[0]);
+    // console.log(chef[0]);
     const recipes = chef[0].recipesList;
     // console.log(recipes);
 
     return (
         <div>
-            <div>
+
+            <Container>
                 <NavBar />
-            </div>
-            <div>
+
                 <ChefBanner
                     key={id}
                     chefData={chefData}
                 >
                 </ChefBanner>
-            </div>
 
-            <div>
-                {
-                    // recipes.map((recipe,idx) => <p
-                    //     key={idx}
-                    // >{recipe.name}</p>)
-                    recipes.map((recipe, idx) => <RecipeDetails
-                        key={idx}
-                        recipe={recipe}
-                    ></RecipeDetails>)
-                }
-            </div>
-            <div>
+                <Row>
+                    {
+                        // recipes.map((recipe,idx) => <p
+                        //     key={idx}
+                        // >{recipe.name}</p>)
+                        recipes.map((recipe, idx) => <RecipeDetails
+                            key={idx}
+                            recipe={recipe}
+                        ></RecipeDetails>)
+                    }
+                </Row>
+
                 <Footer />
-            </div>
+            </Container>
+
         </div>
     );
 };

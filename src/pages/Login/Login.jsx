@@ -9,7 +9,7 @@ const Login = () => {
 
     const navigate = useNavigate();
     const location = useLocation();
-    console.log('login page location', location)
+    // console.log('login page location', location)
     const from = location.state?.from?.pathname || '/'
 
     const handleLogin = event => {
@@ -32,7 +32,7 @@ const Login = () => {
 
     const handleGoogleSignIn = () => {
         signInWithGoogle()
-            .then(result => {
+            .then((result) => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
                 navigate(from, { replace: true })
@@ -76,15 +76,15 @@ const Login = () => {
                 </Form.Group> */}
 
                         <div className='text-center'>
-                            <Button variant="primary" type="submit" block>
+                            <Button variant="primary" type="submit" >
                                 Login
                             </Button>
                             <hr />
-                            <Button className='mt-2' onClick={handleGoogleSignIn} variant="danger" block>
+                            <Button className='mt-2' onClick={handleGoogleSignIn} variant="danger">
                                 Login with Google
                             </Button>
                             <hr />
-                            <Button className='mt-2' onClick={handleGithubSignIn} variant="dark" block>
+                            <Button className='mt-2' onClick={handleGithubSignIn} variant="dark" >
                                 Login with Github
                             </Button>
                         </div>
