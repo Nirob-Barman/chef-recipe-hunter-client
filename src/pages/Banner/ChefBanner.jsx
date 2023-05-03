@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Image, Button } from "react-bootstrap";
+import LazyLoad from 'react-lazyload';
 
 const ChefBanner = ({ chefData }) => {
 
@@ -11,11 +12,17 @@ const ChefBanner = ({ chefData }) => {
         <Container className="bg-light py-5">
             <Row className="justify-content-center align-items-center">
                 <Col md={4} className="text-center">
-                    <Image
-                        src={pictureUrl}
-                        alt="Chef"
-                        className="mb-3 w-50"
-                    />
+
+                    <LazyLoad height={5000}>
+                        <Image
+                            src={pictureUrl}
+                            alt="Chef"
+                            className="mb-3 w-50"
+                        />
+                    </LazyLoad>
+
+                    
+
                     <h2 className="font-weight-bold mb-3">{name}</h2>
                     <p className="text-muted mb-3">
                         {bio}
