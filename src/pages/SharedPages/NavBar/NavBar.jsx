@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Button, Container, Image, Nav, Navbar } from 'react-bootstrap';
+import { Button, Card, Container, Image, Nav, Navbar } from 'react-bootstrap';
 import { Link, useLocation } from 'react-router-dom';
 import { FaUser } from 'react-icons/fa';
 import { AuthContext } from '../../../providers/AuthProvider';
@@ -36,22 +36,28 @@ const NavBar = () => {
                         </Nav>
                         <Nav className="mx-auto gap-5">
                             <Link to="/" className={`text-decoration-none ${location.pathname === '/' ? 'fs-6 text-uppercase text-danger text-decoration-none' : ''}`}
-                                // className={location.pathname === '/' ? 'text-danger text-decoration-none' : ''}
+                            // className={location.pathname === '/' ? 'text-danger text-decoration-none' : ''}
                             >Home</Link>
                             <Link to="/blog"
                                 className={`text-decoration-none ${location.pathname === '/blog' ? 'fs-6 text-uppercase text-danger text-decoration-none' : ''}`}
-                                // className={location.pathname === '/blog' ? 'text-danger text-decoration-none' : ''}
+                            // className={location.pathname === '/blog' ? 'text-danger text-decoration-none' : ''}
                             >Blog</Link>
                             <Link to="/about"
                                 className={`text-decoration-none ${location.pathname === '/about' ? 'fs-6 text-uppercase text-danger text-decoration-none' : ''}`}
-                                // className={location.pathname === '/about' ? 'text-danger text-decoration-none' : ''}
+                            // className={location.pathname === '/about' ? 'text-danger text-decoration-none' : ''}
                             >About</Link>
                         </Nav>
                         <Nav className='gap-2'>
                             {
-                                user && <FaUser
+                                user ? <Card.Img
+                                    roundedCircle 
                                     title={user?.displayName}
-                                    style={{ fontSize: '2rem' }}></FaUser>
+                                    style={{ height: '3rem', objectFit: 'cover' }}
+                                    variant="top" src={user.photoURL} />
+                                    :
+                                    <FaUser
+                                        title={user?.displayName}
+                                        style={{ fontSize: '2rem' }}></FaUser>
                             }
 
                             {user ?

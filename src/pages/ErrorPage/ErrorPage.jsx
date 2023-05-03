@@ -1,15 +1,28 @@
-import React from 'react'
-import { Container } from 'react-bootstrap';
+import React, { useState } from 'react'
+import { Container, Toast } from 'react-bootstrap';
 import { Link, useRouteError } from 'react-router-dom'
 import NavBar from '../SharedPages/NavBar/NavBar';
 import Footer from '../SharedPages/Footer/Footer';
 
 const ErrorPage = () => {
-    const { error, status } = useRouteError()
+    const { error, status } = useRouteError();
+    const [showA, setShowA] = useState(true);
+
+    const toggleShowA = () => setShowA(!showA);
+
     return (
         <Container>
 
             <NavBar />
+
+            <Toast className='text-center' show={showA} onClose={toggleShowA}>
+                <Toast.Header>
+                    <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
+                    <strong className="me-auto">Error</strong>
+                </Toast.Header>
+                <Toast.Body>{status}</Toast.Body>
+                {error?.message}
+            </Toast>
 
             <section>
                 <div className='text-center'>
