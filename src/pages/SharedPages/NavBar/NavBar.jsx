@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
 import { Button, Container, Image, Nav, Navbar } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import { FaUser, FaUserCircle } from 'react-icons/fa';
+import { Link, useLocation } from 'react-router-dom';
+import { FaUser } from 'react-icons/fa';
 import { AuthContext } from '../../../providers/AuthProvider';
 
 const NavBar = () => {
+    const location = useLocation();
 
     const { user, logOut } = useContext(AuthContext);
     const handleLogOut = () => {
@@ -12,6 +13,8 @@ const NavBar = () => {
             .then()
             .catch(error => console.log(error));
     }
+
+
 
     return (
         <Container>
@@ -24,16 +27,24 @@ const NavBar = () => {
                                 title='Delicious'
                                 to="/">
                                 <Image
-                                className=''
+                                    className=''
                                     src="https://w7.pngwing.com/pngs/791/461/png-transparent-seed-bank-seed-company-hemp-benih-others-text-wedding-logo.png"
                                     style={{ width: "100%", height: "40px", objectFit: "cover" }}
-                                    alt="Delicious"  />
+                                    alt="Delicious" />
                             </Link>
                         </Nav>
                         <Nav className="mx-auto gap-5">
-                            <Link to="/">Home</Link>
-                            <Link to="/blog">Blog</Link>
-                            <Link to="/about">About</Link>
+                            <Link to="/" className={`text-decoration-none ${location.pathname === '/' ? 'fs-6 text-uppercase text-danger text-decoration-none' : ''}`}
+                                // className={location.pathname === '/' ? 'text-danger text-decoration-none' : ''}
+                            >Home</Link>
+                            <Link to="/blog"
+                                className={`text-decoration-none ${location.pathname === '/blog' ? 'fs-6 text-uppercase text-danger text-decoration-none' : ''}`}
+                                // className={location.pathname === '/blog' ? 'text-danger text-decoration-none' : ''}
+                            >Blog</Link>
+                            <Link to="/about"
+                                className={`text-decoration-none ${location.pathname === '/about' ? 'fs-6 text-uppercase text-danger text-decoration-none' : ''}`}
+                                // className={location.pathname === '/about' ? 'text-danger text-decoration-none' : ''}
+                            >About</Link>
                         </Nav>
                         <Nav className='gap-2'>
                             {
@@ -46,7 +57,7 @@ const NavBar = () => {
                                     <Button variant="secondary">Login</Button>
                                 </Link>
                             }
-                            
+
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
