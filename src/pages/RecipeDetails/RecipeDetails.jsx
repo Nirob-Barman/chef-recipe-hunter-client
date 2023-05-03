@@ -30,8 +30,10 @@ const RecipeDetails = ({ recipe }) => {
                         <ul>
                             {ingredients.map(ingredient => <li key={ingredient}>{ingredient}</li>)}
                         </ul>
-                        <h5>Cooking Method:
-                            {cookingMethod}</h5>
+                        <h5>Cooking Method:</h5>
+                        <ul>
+                            {cookingMethod}
+                        </ul>
 
                         {/* <h5>Rating: {rating}</h5> */}
                         <div className='flex-grow-1 d-flex align-items-center'>

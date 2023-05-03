@@ -9,9 +9,9 @@ const ChefRecipes = () => {
     const { id } = useParams();
     const chef = useLoaderData();
     const chefData = chef[0];
-    // console.log(chef[0]);
+    console.log(chef[0]);
     const recipes = chef[0].recipesList;
-    console.log(recipes);
+    // console.log(recipes);
 
     return (
         <div>

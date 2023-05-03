@@ -4,7 +4,8 @@ import { Container, Row, Col, Image, Button } from "react-bootstrap";
 const ChefBanner = ({ chefData }) => {
 
     // console.log(chefData);
-    const { id, name, pictureUrl, experience, recipes, likes } = chefData;
+    const { id, name, bio, pictureUrl, experience, recipes, likes } = chefData;
+    console.log(bio);
 
     return (
         <Container className="bg-light py-5">
@@ -17,8 +18,7 @@ const ChefBanner = ({ chefData }) => {
                     />
                     <h2 className="font-weight-bold mb-3">{name}</h2>
                     <p className="text-muted mb-3">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-                        id enim eu elit gravida tempor.
+                        {bio}
                     </p>
                     <p className="text-muted mb-3">
                         <span className="font-weight-bold mr-2">Likes:</span> {likes}
