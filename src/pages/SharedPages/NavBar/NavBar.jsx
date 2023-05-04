@@ -8,6 +8,9 @@ const NavBar = () => {
     const location = useLocation();
 
     const { user, logOut } = useContext(AuthContext);
+    // console.log(user);
+    // console.log(user.displayName);
+    // console.log(user.photoURL);
     // console.log(user.email);
     const handleLogOut = () => {
         logOut()
@@ -49,15 +52,23 @@ const NavBar = () => {
                         <Nav className='gap-2'>
                             {
                                 user &&
-                                    // <Card.Img
-                                    // roundedCircle 
-                                    // title={user?.displayName}
-                                    // style={{ height: '3rem', objectFit: 'cover' }}
-                                    // variant="top" src={user.photoURL} />
-                                    // :
-                                    <FaUser
-                                        title={user?.displayName}
-                                        style={{ fontSize: '2rem' }}></FaUser>
+                                <Image
+                                    title={user?.displayName}
+                                    src={user?.photoURL}
+                                    roundedCircle
+                                    style={{ width: "50px", height: "50px" }}
+                                    alt="profile" fluid />
+
+                                // <Card.Img
+                                // roundedCircle 
+                                // title={user?.displayName}
+                                // style={{ height: '2.5rem', }}
+                                //  src={user.photoURL} />
+
+                                // // :
+                                // <FaUser
+                                //     title={user?.displayName}
+                                //     style={{ fontSize: '2rem' }}></FaUser>
                             }
 
                             {user ?
