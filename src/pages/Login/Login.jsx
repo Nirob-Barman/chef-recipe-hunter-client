@@ -1,10 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
-
+import Toast from 'react-bootstrap/Toast';
 
 const Login = () => {
+
+    const [error, setError] = useState('');
+    
+    
+
     const { signIn, signInWithGoogle, signInWithGithub } = useContext(AuthContext);
 
     const navigate = useNavigate();
@@ -19,14 +24,24 @@ const Login = () => {
         const password = form.password.value;
         console.log(email, password);
 
+        setError('');
+        if (password.length < 6) {
+            setError('Password must be 6 characters long');
+            return
+        }
+
         signIn(email, password)
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
+                setError('');
+
                 navigate(from, { replace: true })
+
             })
             .catch(error => {
-                console.log(error);
+                // console.log(error.message);
+                setError(error.message);
             })
     }
 
@@ -73,7 +88,20 @@ const Login = () => {
                         {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="Check me out" />
                 </Form.Group> */}
-
+                        {/* <p className='text-success'>{error}</p> */}
+                        {
+                            error && <Toast 
+                                
+                                style={{
+                                    position: 'absolute',
+                                    top: '32%',
+                                    left: '60%',
+                                    transform: 'translate(-50%, -50%)',
+                                }}
+                            >
+                                <Toast.Body className='text-danger'>{error}</Toast.Body>
+                            </Toast>
+                        }
                         <div className='text-center'>
                             <Button variant="primary" type="submit" >
                                 Login
@@ -92,13 +120,6 @@ const Login = () => {
                                 Don't Have an Account? <Link to="/register">Register</Link>
                             </Form.Text>
                         </div>
-                        <Form.Text className="text-success">
-
-                        </Form.Text>
-                        <Form.Text className="text-danger">
-
-                        </Form.Text>
-
 
                     </Form>
                 </Col>
