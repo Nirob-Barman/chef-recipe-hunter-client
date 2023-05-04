@@ -16,7 +16,6 @@ const NavBar = () => {
     }
 
 
-
     return (
         <Container>
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
@@ -49,12 +48,13 @@ const NavBar = () => {
                         </Nav>
                         <Nav className='gap-2'>
                             {
-                                user ? <Card.Img
-                                    roundedCircle 
-                                    title={user?.displayName}
-                                    style={{ height: '3rem', objectFit: 'cover' }}
-                                    variant="top" src={user.photoURL} />
-                                    :
+                                user &&
+                                    // <Card.Img
+                                    // roundedCircle 
+                                    // title={user?.displayName}
+                                    // style={{ height: '3rem', objectFit: 'cover' }}
+                                    // variant="top" src={user.photoURL} />
+                                    // :
                                     <FaUser
                                         title={user?.displayName}
                                         style={{ fontSize: '2rem' }}></FaUser>

@@ -3,6 +3,9 @@ import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 
+import { getAuth, updateProfile } from "firebase/auth";
+const auth = getAuth();
+
 const Register = () => {
     const { createUser } = useContext(AuthContext);
     const [accepted, setAccepted] = useState(false);
@@ -39,6 +42,17 @@ const Register = () => {
             .then(result => {
                 const createdUser = result.user;
                 console.log(createdUser);
+                
+                updateProfile(createdUser, {
+                    displayName: name,
+                    photoURL: photo
+                })
+                    .then(() => {
+                        console.log('user name updated')
+                    })
+                    .catch(error => {
+                        setError(error.message);
+                    })
                 
                 setError('');
                 navigate(from, { replace: true })
