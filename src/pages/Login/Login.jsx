@@ -7,8 +7,8 @@ import Toast from 'react-bootstrap/Toast';
 const Login = () => {
 
     const [error, setError] = useState('');
-    
-    
+
+    const [show, setShow] = useState(false);
 
     const { signIn, signInWithGoogle, signInWithGithub } = useContext(AuthContext);
 
@@ -90,20 +90,22 @@ const Login = () => {
                 </Form.Group> */}
                         {/* <p className='text-success'>{error}</p> */}
                         {
-                            error && <Toast 
-                                
+                            error && <Toast
+                                onClose={() => setShow(false)} show={show} delay={2000} autohide
                                 style={{
                                     position: 'absolute',
                                     top: '32%',
-                                    left: '60%',
+                                    left: '57%',
                                     transform: 'translate(-50%, -50%)',
                                 }}
                             >
+                                <Toast.Header />
+                                
                                 <Toast.Body className='text-danger'>{error}</Toast.Body>
                             </Toast>
                         }
                         <div className='text-center'>
-                            <Button variant="primary" type="submit" >
+                            <Button onClick={() => setShow(true)} variant="primary" type="submit" >
                                 Login
                             </Button>
                             <hr />
